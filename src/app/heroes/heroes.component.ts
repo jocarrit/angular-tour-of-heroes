@@ -9,15 +9,11 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./heroes.component.scss']
 })
 export class HeroesComponent implements OnInit {
-  // hero: Hero = {
-  //   id: 1,
-  //   name: 'Windstorm'
-  // }
 
   heroes: Hero[] = []
 
   getHeroes(): void {
-    this.heroes = this.heroService.getHeroes()
+    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes)
   }
 
   selectedHero?: Hero
